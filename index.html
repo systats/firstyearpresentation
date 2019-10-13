@@ -16,6 +16,7 @@ class: inverse
 
 
 
+
 &lt;head&gt;
   &lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.0/semantic.css"&gt;
   &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.2/jquery.js"&gt;&lt;/script&gt;
@@ -117,8 +118,6 @@ class: inverse
 &lt;/center&gt;
 ]
 
---
-
 .pull-right[
 &lt;center&gt;
 &lt;img src = "images/donald.jpg" width = "75%"&gt;
@@ -148,13 +147,6 @@ background-size: contain
 &lt;div class = "ui small red header"&gt;
   Original Content
 &lt;/div&gt;
-
-&lt;!-- 
-* Christopher Wylie: whistleblower March 2018 
-* predicting political behavior.  
-* commercial targeting tools get hijacked by political interests.  
-* host vs parasite relationship.  
---&gt;
 
 ---
 
@@ -308,7 +300,7 @@ class: inverse, center, middle
 &lt;strong&gt;Limitations&lt;/strong&gt;
 
 * Neither context information nor word order matter
-* Curse of high-dimensionality
+* Curse of high dimensionality
 * Sparsity (99% of cells are 0)
 * Big data limitation due to size of `\([N \times w_i]\)`
 * Prediction model has own limitations (GLM, Trees, SVM, NN)
@@ -323,7 +315,6 @@ class: inverse, center, middle
 * Each word is replaced by its index
 * Fixed input length (pad/truncate)
 * A sequence of integer tokens
-* Much more efficient [N, seq_len]
 
 &lt;br&gt;
 
@@ -467,9 +458,9 @@ and padding to get fixed size input
 
 &lt;strong&gt; DTM &lt;/strong&gt;
 
-* every word is represented as new column causing high dimensionality
-* can handle only 2-5 tausend words, mature humans have a vocabulary of 20-40 thousands words.
-
+* each unique word is new column -&gt; high dimensionality
+* handles 2-7 thousands words
+* mature humans have a vocabulary of 20-40 thousands words.
 
 ]
 
@@ -477,9 +468,9 @@ and padding to get fixed size input
 
 &lt;strong&gt; SEQ &lt;/strong&gt;
 
-* Size of text represetation is independent of size of vocubluary
+* Size of text representation is independent of size of vocabulary
 * Fixed sequence length determines the number of columns
-* Able to memorize up to 500 thousands words and millions of instances
+* Able to memorize up to a million of words and instances (N)
 * Character Level tokenization possible
 
 ]
@@ -496,7 +487,7 @@ and padding to get fixed size input
 &lt;img class="ui right floated small image" src = "images/word2vec.png"&gt;
 
 
-* word2vec &lt;a name=cite-mikolov2013efficient&gt;&lt;/a&gt;([Mikolov, Chen, Corrado, and Dean, 2013](#bib-mikolov2013efficient))
+* word2vec &lt;a name=cite-mikolov2013efficient&gt;&lt;/a&gt;([Mikolov, Chen, Corrado, and Dean, 2013a](#bib-mikolov2013efficient))
 * Dense representation of discrete vocab.
 * Nowadays integrated + optimized by global loss.
 
@@ -522,8 +513,8 @@ and padding to get fixed size input
 
 * From computer vision
 * 1D CNN for text
-    + &lt;a name=cite-kalchbrenner2014convolutional&gt;&lt;/a&gt;([Kalchbrenner, Grefenstette, and Blunsom, 2014](#bib-kalchbrenner2014convolutional))
-    + &lt;a name=cite-kim2014convolutional&gt;&lt;/a&gt;([Kim, 2014](#bib-kim2014convolutional))
+    + &lt;a name=cite-kalchbrenner2014convolutional&gt;&lt;/a&gt;([Kalchbrenner, Grefenstette, and Blunsom, 2014a](#bib-kalchbrenner2014convolutional))
+    + &lt;a name=cite-kim2014convolutional&gt;&lt;/a&gt;([Kim, 2014a](#bib-kim2014convolutional))
 * Interprets each token as real valued pixel
 * Local adaptive filters are pooling the spatial dependencies of words (1D)
 * Can be parallelized (speed up)
@@ -589,7 +580,7 @@ mainly use social network data like
 
 * Interpersonal (e.g. Huckfeldt and Sprague, 1995; Jost et al., 2018)
 * Hyperlinks (e.g., Baek, 2009)
-* Roll Call Voting 
+&lt;!-- * Roll Call Voting  --&gt;
 * Neighborhoods (e.g. McClurg, 2006; Sotirovic and McLeod, 2001)
 * Follower/Friends (e.g. Barberá)
 
@@ -635,16 +626,26 @@ Most of participation studies focus on political actors rather than citizens
 .pull-left[
 
 * Match Florida voter registration files with Twitter accounts
+
 * 90000 registered voters (16%) matched by email
+
 * Sample approximates population characteristics (ACS and PUMS)
-* Rare strategic crossover voting &lt;a name=cite-alvarez1997analysis&gt;&lt;/a&gt;([Alvarez and Nagler, 1997](#bib-alvarez1997analysis))
-* Florida has closed primaries and public records
+
+* Florida
+  + closed primaries 
+  + public records
+  + active battle ground state
+
+&lt;!-- * Rare strategic crossover voting &lt;a name=cite-alvarez1997analysis&gt;&lt;/a&gt;([Alvarez and Nagler, 1997a](#bib-alvarez1997analysis)) --&gt;
+
 
 
 **Political Targets**
 
 * voting turnout
+
 * voting propensity
+
 * **party registration**
 
 
@@ -676,7 +677,8 @@ Most of participation studies focus on political actors rather than citizens
 
 ### Validation 1
 
-* Target is a citizen's binary partisanship (D=0, R=1)
+* Model with word embedding, convolutional and recurrent layer
+* Target is a **citizen's** binary partisanship (D=0, R=1)
 * Out of sample splitting (balanced outcome)
 * 88.9% test accuracy 
 
@@ -709,22 +711,30 @@ Most of participation studies focus on political actors rather than citizens
 &lt;/center&gt;
 
 
-
 ---
 
-### Next Steps
+### Summary
 
+* Deploying advanced NLP models to overcome language simplifications 
+
+* Predict Party Affiliation with high certainty from citizen's communication
+
+* Validation exercises suggest a useful measure for ideological scaling based on **text**
+
+**Next Steps**
+
+* Predict other political targets: voting turnout and propensity
+
+* R Package of pretrained models `deepvoter`
 
 * Predicting silent majority: Using liked tweets and friend networks as features 
-* Estimates are valid for this specific Geo sample
-    + active battle ground state Florida
-    + communication national/international
-* Out of state validation with data from e.g. from Rhode Island or Nebraska
+
+* Out of state validation with data from e.g. from Rhode Island or South Dakota
+
 * Predicting the US general election 2020 
     + large twitter non-probability samples (Geo tagged)
     + predict additional features like sex and age
     + post stratification of county level aggregation
-
 
 ---
 class: inverse
@@ -799,29 +809,25 @@ class: inverse
 
 &lt;!-- * BotOrNot has been trained with thousands of instances of social bots, from simple to sophisticated, and an accuracy of above 95 percent (Davis, et al., 2016).  --&gt;
 
-**Users**
 
-* fraud
-* mobbing
-* hate
+* **Users** engage in fraud, mobbing, and hate/toxic speech
 
 
-**Hidden Actors**
+* **Hidden Actors** produce computational propaganda (AstroTurf) via bots and payed advertisement
 
-* Bots armies
-* Computational propaganda
-    + engaging at much higher pace 
-    + undisclosed identity  (Hwang, et al., 2012; Messias, et al., 2013; Ferrara, et al., 2016).
-* Asroturf or Twitter bombs.
-    
 
-**Platform**
+* **Platform**
 
-* provides surveillance techniques that can be hijacked. 
-* can influence individual behavior (Aral and Walker, 2010). 
-* Facebook and Google real world experimentation
-* privacy breaches
+    + Privacy breaches as business model (Google Street-view)
 
+    + Can influence individual behavior in real world experimentation (Aral and Walker, 2010)
+
+    + provide surveillance techniques that can be hijacked (**Surveillance Capitalism**, Zuboff 2015)
+
+
+&lt;br&gt;
+
+&gt; How do social media companies influence their users?
 
 ---
 
@@ -831,17 +837,19 @@ class: inverse
 
 &gt; Two mechanisms of selective exposure: self-selection into echo chambers and algorithmic confinement into filter bubbles.
 
+
 &lt;br&gt;
 
 &lt;strong&gt;1. Echo Chambers&lt;/strong&gt;
 
-* Emerge in face-to-face relationships [@tewksbury2003americans; @garrett2009echo; @beam2013]
-* Facebook: confirmation bias is driving force of echo chamber creation [cf. @geschke_abm].
-* Exposing partisans to opposing views on Twitter increased political polarization [@bail2018exposure]. 
+* Emerge in face-to-face relationships &lt;a name=cite-tewksbury2003americans&gt;&lt;/a&gt;([Tewksbury, 2003](#bib-tewksbury2003americans)) 
+&lt;!-- [; @garrett2009echo; @beam2013] --&gt;
+* Confirmation bias is driving force of echo chamber creation &lt;a name=cite-geschke_abm&gt;&lt;/a&gt;([Geschke, Lorenz, and Holtz, 2019](https://onlinelibrary.wiley.com/doi/abs/10.1111/bjso.12286))
+* Exposing partisans to opposing views on Twitter increased political polarization (Bail et al. 2018)
 &lt;!-- , at least for conservatives exposed to liberal viewpoints --&gt;
-* Facebook 2: suggest that the effect of echo chambers might be overestimated altogether [@bakshy2015exposure].
-* Endorsements of a given news source trump the explicit partisanship affiliation of the source [@solomon2014]
-* Guess et al. 2018 describe the rather limited evidence of echo chambers online and even talk about an *echo chamber about echo chambers*
+* Facebook 2: suggest that the effect of echo chambers might be overestimated altogether &lt;a name=cite-bakshy2015exposure&gt;&lt;/a&gt;([Bakshy, Messing, and Adamic, 2015](#bib-bakshy2015exposure))
+* Endorsements of a given news source trump the explicit partisanship affiliation of the source &lt;a name=cite-solomon2014&gt;&lt;/a&gt;([Messing and Westwood, 2014](https://doi.org/10.1177/0093650212466406))
+* "echo chamber about echo chambers" (Guess et al. 2018)
 &lt;!-- * "bots" posing as white male users are able to reduce racial slurs used by other white people on Twitter more successfully than bots posing as black males [@Munger2017]. --&gt;
 
 
@@ -849,30 +857,29 @@ class: inverse
 
 ### Research Agenda 
 
+&lt;br&gt;
+
 &lt;strong&gt;2. Filter Bubbles&lt;/strong&gt;
 
-* Online phenomenon of algorithmic prioritization of (ideologically) appealing content
-* "radical" filter bubbles on YouTube, Gab and Reddit [@reed2019radical].
-*  study the political bias of Google news recommendations [@haim2018burst].
-
+* Online phenomenon of algorithmic prioritization of appealing content
+* "Radical" filter bubbles on YouTube, Gab and Reddit (Reed et al. 2019).
+* Political bias of Google news recommendations (Haim et al. 2018).
 
 &lt;br&gt;
 
-&lt;strong&gt;Hypothesis&lt;/strong&gt;
-
-&lt;!-- **Self-Selection Hypothesis** --&gt;
+**Self-Selection Hypothesis**
 
 &gt; H1: Explicitly opting into receiving ideologically congruent content will deprioritize ideologically incongruent content in the news feed 
 
 &lt;!-- (in terms of frequency and ranking) --&gt;
 
-&lt;!-- **Filter bubble Hypothesis** --&gt;
+**Filter bubble Hypothesis**
 
 &gt; H2: Engaging with ideologically congruent content will deprioritize ideologically incongruent content in the news feed
 
 &lt;!-- (in terms of frequency and ranking) --&gt;
 
-&lt;!-- **Self-selection vs. Filter bubble** --&gt;
+**Self-selection vs. Filter bubble**
 
 &gt; H3: Self-selection into echo chambers has a stronger effect on censoring incongruent content than engaging with congruent content.
 
@@ -895,7 +902,7 @@ class: inverse
 
 **Anticipated Issues**
 
-* Attribution: bot detection (fake real person vs. obvious bot)
+* Attrition: bot detection (fake real person vs. obvious bot)
 * Spillovers: static IP addresses via VPN all over the US
 * Missings: due to bugging code
 * Power: Several hundred bots are needed
@@ -972,7 +979,7 @@ class: inverse
 
 .pull-right[
 
-**Simulated Expections**
+**Simulated Expectations**
 
 &lt;center&gt;
 &lt;img src = "images/sim.png" width = "110%"&gt;
@@ -986,17 +993,39 @@ class: inverse
 ### Summary
 
 * A computational framework for testing content recommendation engines
+
 * Allows to distill echo chambers from filter bubbles
+
 * Several hundred bots treat the algorithm over a long period
+
 * High performance text classifiers for partisanship
+
 * Can we observe algorithmic filter bubbles after engagement?
 
 **Next Steps**
 
 * Pretest with 12 virgin bots.
+
 * Main Experiment November - January.
 
 ---
+
+.pull-left[
+
+**Autoencoder**
+
+
+]
+
+.pull-right[
+
+**Scaling speeches in Parliament**
+
+
+]
+
+---
+
 
 ### Conclusion
     </textarea>
