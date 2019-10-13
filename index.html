@@ -4,7 +4,7 @@
     <title>index.utf8</title>
     <meta charset="utf-8" />
     <meta name="author" content="Simon Roth" />
-    <meta name="date" content="2019-10-13" />
+    <meta name="date" content="2019-10-14" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
     <script src="libs/kePrint/kePrint.js"></script>
@@ -103,7 +103,7 @@ class: inverse
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class = "four wide column"&gt;
-  2019-10-13
+  2019-10-14
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -843,13 +843,16 @@ class: inverse
 &lt;strong&gt;1. Echo Chambers&lt;/strong&gt;
 
 * Emerge in face-to-face relationships &lt;a name=cite-tewksbury2003americans&gt;&lt;/a&gt;([Tewksbury, 2003](#bib-tewksbury2003americans)) 
-&lt;!-- [; @garrett2009echo; @beam2013] --&gt;
+
 * Confirmation bias is driving force of echo chamber creation &lt;a name=cite-geschke_abm&gt;&lt;/a&gt;([Geschke, Lorenz, and Holtz, 2019](https://onlinelibrary.wiley.com/doi/abs/10.1111/bjso.12286))
+
 * Exposing partisans to opposing views on Twitter increased political polarization (Bail et al. 2018)
-&lt;!-- , at least for conservatives exposed to liberal viewpoints --&gt;
-* Facebook 2: suggest that the effect of echo chambers might be overestimated altogether &lt;a name=cite-bakshy2015exposure&gt;&lt;/a&gt;([Bakshy, Messing, and Adamic, 2015](#bib-bakshy2015exposure))
+
 * Endorsements of a given news source trump the explicit partisanship affiliation of the source &lt;a name=cite-solomon2014&gt;&lt;/a&gt;([Messing and Westwood, 2014](https://doi.org/10.1177/0093650212466406))
+
 * "echo chamber about echo chambers" (Guess et al. 2018)
+
+
 &lt;!-- * "bots" posing as white male users are able to reduce racial slurs used by other white people on Twitter more successfully than bots posing as black males [@Munger2017]. --&gt;
 
 
@@ -897,7 +900,7 @@ class: inverse
 * Technical requirements:
     + "home" location (VPN)
     + phone number (SMS Verification)
-    + Personal Chrome browser cache
+    + Personal Chrome browser cache (Selenium)
     + Docker container to run Bot sessions in parallel
 
 **Anticipated Issues**
@@ -1000,7 +1003,6 @@ class: inverse
 
 * High performance text classifiers for partisanship
 
-* Can we observe algorithmic filter bubbles after engagement?
 
 **Next Steps**
 
@@ -1012,15 +1014,34 @@ class: inverse
 
 .pull-left[
 
-**Autoencoder**
+### Autoencoder For Topicmodeling
 
+Simon Roth
+
+
+* Overcome DTM representation in Topic Modeling
+
+* Using unsupervised neural networks 
+
+* Build AE with recurrent and convolutional layers
+
+* Can be used to distinguish fake news, toxic language and scientific fields without knowing the true label. 
 
 ]
 
 .pull-right[
 
-**Scaling speeches in Parliament**
+### Floor Speeches and Ideological Position 
 
+Ben Guinaudeau &amp; Simon Roth
+
+* Scaling representatives in proportional electoral systems
+
+* Predict party group with Sigmoid activation in order to get non exclusive party probabilities 
+
+* Cross-Classification will be used to show ideological overlaps between parties 
+
+* Finally study electoral incentives
 
 ]
 
