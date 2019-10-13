@@ -134,30 +134,50 @@ class: inverse
 
 ---
 
+background-image: url(https://raw.githubusercontent.com/systats/firstyearpresentation/master/images/ca_intro.jpg)
 
-.pull-left[
+&lt;div class = "ui small red header"&gt;
+  Original Content
+&lt;/div&gt;
 
-### Information Warfare
+---
 
-* Whistelblower
-* predicting political behavior. 
-* commercial targeting tools get hijacked by political interests. 
+background-image: url(https://raw.githubusercontent.com/systats/firstyearpresentation/master/images/ca_2.jpg)
+background-size: contain
+
+&lt;div class = "ui small red header"&gt;
+  Original Content
+&lt;/div&gt;
+
+&lt;!-- 
+* Christopher Wylie: whistleblower March 2018 
+* predicting political behavior.  
+* commercial targeting tools get hijacked by political interests.  
+* host vs parasite relationship.  
+--&gt;
+
+---
+
+class: inverse
+background-image: url(https://www.abc.net.au/news/image/9571150-4x3-940x705.png)
+background-size: contain
+
+&lt;div class = "ui small red header"&gt;
+  Original Content
+&lt;/div&gt;
+
+&lt;!-- https://yt3.ggpht.com/a/AGF-l79TP_XBffZbDAuuEBJYtJwHFD5Bgmg2rhJxMQ=s900-c-k-c0xffffffff-no-rj-mo --&gt;
 
 
+---
 
+background-image: url(https://raw.githubusercontent.com/systats/firstyearpresentation/master/images/ideia.png)
+background-size: contain
 
-host vs parasite relationship. 
+---
 
-]
-
-
-.pull-right[
-
-&lt;center&gt;
-&lt;img src = "images/cambridgeanalytica.png" width = "50%"&gt;
-&lt;/center&gt;
-
-]
+background-image: url(https://raw.githubusercontent.com/systats/firstyearpresentation/master/images/crystal.png)
+background-size: contain
 
 ---
 
@@ -288,46 +308,10 @@ New tools.
 * Curse of high-dimensionality
 * Sparsity (99% of cells are 0)
 * Big data limitation due to size of `\([N \times w_i]\)`
-* Prediction model has its own constraints
+* Prediction model has own limitations (GLM, Trees, SVM, NN)
 
 ---
 
-
-### Memory Inefficiency
-
-
-
-
-&lt;center&gt;
-&lt;img src = "images/gg_eff.png" width = "80%"&gt;
-&lt;/center&gt;
-
-
-.pull-left[
-
-&lt;strong&gt; DTM &lt;/strong&gt;
-
-]
-
-.pull-right[
-
-&lt;strong&gt; SEQ &lt;/strong&gt;
-
-]
-
-&lt;!-- &lt;strong&gt; Sample Size N&lt;/strong&gt; --&gt;
-
-&lt;!-- * 1.5 mio tweets (and even more) --&gt;
-&lt;!-- * batching/stacking --&gt;
-
-&lt;!-- &lt;strong&gt; Number of columns&lt;/strong&gt; --&gt;
-
-&lt;!-- * Mature humans have a vocabulary capacity of 20-40 thousands words. --&gt;
-&lt;!-- * DTMs usually have 2-10 thousands word columns. --&gt;
-
-&lt;!-- &lt;strong&gt;How to scale?&lt;/strong&gt; sequence models can memories 10-500 thousands words. --&gt;
-
----
 
 ### Sequences
 
@@ -465,6 +449,41 @@ and padding to get fixed size input
 ]
 
 ---
+
+### Memory Eefficiency
+
+
+
+
+&lt;center&gt;
+&lt;img src = "images/gg_eff.png" width = "80%"&gt;
+&lt;/center&gt;
+
+
+.pull-left[
+
+&lt;strong&gt; DTM &lt;/strong&gt;
+
+* every word is represented as new column causing high dimensionality
+* can handle only 2-5 tausend words, mature humans have a vocabulary of 20-40 thousands words.
+
+
+]
+
+.pull-right[
+
+&lt;strong&gt; SEQ &lt;/strong&gt;
+
+* Size of text represetation is independent of size of vocubluary
+* Fixed sequence length determines the number of columns
+* Able to memorize up to 500 thousands words and millions of instances
+* Character Level tokenization possible
+
+]
+
+---
+
+
 
 
 ### Neural Networks
@@ -652,7 +671,7 @@ Most of participation studies focus on political actors rather than citizens
 ---
 
 
-### Model Performance
+### Validation 1
 
 * Target is a citizen's binary partisanship (D=0, R=1)
 * Out of sample splitting (balanced outcome)
@@ -665,7 +684,7 @@ Most of participation studies focus on political actors rather than citizens
 
 ---
 
-### Validation 1
+### Validation 2
 
 * 2020 US presidential candidates 
 * Collected the last 3200 statuses Twitter statuses 
