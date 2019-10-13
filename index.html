@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>index.utf8</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Simon Roth" />
+    <meta name="date" content="2019-10-13" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: inverse
+
+
+
+&lt;head&gt;
+  &lt;link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.0/semantic.css"&gt;
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.2/jquery.js"&gt;&lt;/script&gt;
+	&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.0/semantic.js"&gt;&lt;/script&gt;
+	&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/remark/0.14.0/remark.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;!--&lt;style&gt;
+.remark-slide-content &gt; h1 {
+  font-size: 40px;
+}
+.remark-slide-content &gt; h2 {
+  font-size: 30px;
+}
+.remark-slide-content &gt; h3 {
+  font-size: 20px;
+}
+&lt;/style&gt;--&gt;
+
+&lt;!-- &lt;img class = "ui medium image" src = "images/unistuttgart.png"&gt; --&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;h1 class = "ui inverted header" style = "font-size:40px"&gt;
+  &lt;div class = "sub header" style = "font-size:25px"&gt;
+    Neural Networks for 
+    &lt;!-- &lt;i class = "inverted users icon"&gt;&lt;/i&gt;&lt;i class = "edit outline icon"&gt;&lt;/i&gt;  --&gt;
+  &lt;/div&gt;
+  Predicting Political Behavior from Text
+&lt;/h1&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;i&gt;First Year Presentation&lt;/i&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;div class = "ui middle aligned centered  grid"&gt;
+&lt;!-- &lt;div class = "three wide column"&gt; --&gt;
+&lt;!--   &lt;h3 class = "ui inverted header"&gt; --&gt;
+&lt;!--   Sascha Göbel --&gt;
+&lt;!--   &lt;div class = "sub header"&gt; --&gt;
+&lt;!--   GSDS --&gt;
+&lt;!--   &lt;/div&gt; --&gt;
+&lt;!--   &lt;/h3&gt; --&gt;
+&lt;!-- &lt;/div&gt; --&gt;
+&lt;div class = "three wide column"&gt;
+  &lt;h3 class = "ui inverted header"&gt;
+  Simon Roth
+  &lt;div class = "sub header"&gt;
+  GSDS
+  &lt;/div&gt;
+  &lt;/h3&gt;
+&lt;/div&gt;
+&lt;!-- &lt;div class = "three wide column"&gt; --&gt;
+&lt;!--   &lt;h3 class = "ui inverted header"&gt; --&gt;
+&lt;!--   Ben Guineaudau --&gt;
+&lt;!--   &lt;div class = "sub header"&gt; --&gt;
+&lt;!--   GSDS --&gt;
+&lt;!--   &lt;/div&gt; --&gt;
+&lt;!--   &lt;/h3&gt; --&gt;
+&lt;!-- &lt;/div&gt; --&gt;
+&lt;div class = "six wide column"&gt;
+  &lt;div align="center"&gt;
+  &lt;a href="https://twitter.com/systatz" target="_blank" rel="nofollow" class = "ui circular twitter icon button"&gt;
+  &lt;i class="twitter icon"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;a href="https://github.com/systats" target="_blank" rel="nofollow" class = "ui circular github icon button"&gt;
+  &lt;i class="github icon"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;a href="mailto:sy-ro[at]gmx[dot]net" rel="nofollow" class = "ui circular mail icon button"&gt;
+  &lt;i class="mail icon"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class = "four wide column"&gt;
+  2019-10-13
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+### US Presidential Elections (2016)
+
+.pull-left[
+&lt;center&gt;
+&lt;img src = "images/tedd.png" width = "75%"&gt;
+&lt;/center&gt;
+]
+
+--
+
+.pull-right[
+&lt;center&gt;
+&lt;img src = "images/donald.jpg" width = "75%"&gt;
+&lt;/center&gt;
+]
+
+--
+
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src = "images/abcpoll.png" width = "50%"&gt;
+&lt;/center&gt;
+
+---
+
+
+.pull-left[
+
+### Information Warfare
+
+* Christover steel, whistelblower
+
+
+* predicting political behavior. 
+* commerical targeting tools get hijacked by political interests. 
+
+
+
+
+host vs parasite relationship. 
+
+]
+
+
+.pull-right[
+
+&lt;center&gt;
+&lt;img src = "images/cambridgeanalytica.png" width = "50%"&gt;
+&lt;/center&gt;
+
+]
+
+---
+
+### Overview
+
+
+* Modern tools to extract knowledge from unstructured data
+* Behavioral predictions: What has been done bevor?
+* From Twitter to Ballot: Predicting Political Behavior from text
+* Social Media Experiemnts: What has been done before?
+* Echo chambers vs filter bubbles: Large Scale Bot Experiment on Twitter
+
+---
+
+### Natural Language processing
+
+New tools. 
+
+---
+
+### Bag of Words
+
+.pull-left[
+
+* Document term matrix (DTM)
+* One hot encoding
+    + Dummy for each word
+    + binary or count vectors
+* Statistical assumptions
+    + independence
+    + exchangability
+
+]
+
+.pull-right[
+
+&lt;table class="table table-striped" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Sample Texts  &lt;br&gt;&lt;br&gt;
+&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; doc_id &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; text &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; academia is live long learning &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; academia means freedom &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; academia can be rough &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+&lt;br&gt;
+
+&lt;table class="table table-striped" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Document Term Matrix (DTM) &lt;br&gt;&lt;br&gt;
+&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; academia &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; be &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; can &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; freedom &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; is &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; learning &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; live &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; long &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; means &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; rough &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;br&gt;
+
+&lt;strong&gt;Limitations&lt;/strong&gt;
+
+* Neither context information nor word order matter
+* Curse of high-dimensionality
+* Sparsity (99% of cells are 0)
+* Big data limitation due to size of `\([N \times w_i]\)`
+* Prediction model has its own constraints
+
+---
+
+
+### Memory Inefficfiency
+
+
+
+
+&lt;center&gt;
+&lt;img src = "images/gg_eff.png" width = "80%"&gt;
+&lt;/center&gt;
+
+
+.pull-left[
+
+&lt;strong&gt; DTM &lt;/strong&gt;
+
+]
+
+.pull-right[
+
+&lt;strong&gt; SEQ &lt;/strong&gt;
+
+]
+
+&lt;!-- &lt;strong&gt; Sample Size N&lt;/strong&gt; --&gt;
+
+&lt;!-- * 1.5 mio tweets (and even more) --&gt;
+&lt;!-- * batching/stacking --&gt;
+
+&lt;!-- &lt;strong&gt; Number of columns&lt;/strong&gt; --&gt;
+
+&lt;!-- * Mature humans have a vocabulary capacity of 20-40 thousands words. --&gt;
+&lt;!-- * DTMs usually have 2-10 thousands word columns. --&gt;
+
+&lt;!-- &lt;strong&gt;How to scale?&lt;/strong&gt; sequence models can memories 10-500 thousands words. --&gt;
+
+---
+
+### Sequences
+
+.pull-left[
+
+* Each word is replaced by its index
+* Fixed input length (pad/truncate)
+* A sequence of integer tokens
+* Much more efficient [N, seq_len]
+
+&lt;br&gt;
+
+First a vocabulary dictionary
+
+&lt;table class="table table-striped" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Sample Data  &lt;br&gt;&lt;br&gt;
+&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; index &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; word &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; n &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; academia &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; is &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; live &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; long &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; learning &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; means &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; freedom &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; can &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; be &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; rough &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+.pull-right[
+
+&lt;table class="table table-striped" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Sample Data  &lt;br&gt;&lt;br&gt;
+&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; doc_id &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; text &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:center;color: red !important;"&gt; academia is live long learning &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:center;color: blue !important;"&gt; academia means freedom &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:center;color: green !important;"&gt; academia can be rough &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;br&gt;
+
+Then tokenize given texts
+
+
+```
+## [[1]]
+## [1] 1 2 3 4 5
+## 
+## [[2]]
+## [1] 1 6 7
+## 
+## [[3]]
+## [1] 1 8 9
+```
+
+and padding to get fixed size input
+
+
+```
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    2    3    4    5
+## [2,]    0    0    1    6    7
+## [3,]    0    0    1    8    9
+```
+
+]
+
+---
+
+
+### Neural Networks
+
+&lt;div class = "ui small header"&gt; Embeddings&lt;/div&gt;
+
+&lt;img class="ui right floated small image" src = "images/word2vec.png"&gt;
+
+
+* word2vec &lt;a name=cite-mikolov2013efficient&gt;&lt;/a&gt;([Mikolov, Chen, Corrado, and Dean, 2013](#bib-mikolov2013efficient))
+* Dense representation of discrete vocab.
+* Nowadays integrated + optimized by global loss.
+
+
+&lt;div class = "ui small header"&gt; Recurrent Neural Network (RNN)&lt;/div&gt;
+
+&lt;img class="ui right floated medium image" src = "images/rnn.jpg"&gt;
+
+
+* Learns arbitrarily long sequential patterns
+* Can be performed bidirectional
+* Able to forget noisy features
+* Extensions:
+    + long short-term memory (LSTM) and
+    + gated recurrent unit (GRU)
+
+
+&lt;div class = "ui small header"&gt;Convolutional Neural Network (CNN)&lt;/div&gt;
+
+
+&lt;img class="ui right floated medium image" src = "images/cnn.png"&gt;
+
+
+* From computer vision
+* 1D CNN for text
+    + &lt;a name=cite-kalchbrenner2014convolutional&gt;&lt;/a&gt;([Kalchbrenner, Grefenstette, and Blunsom, 2014](#bib-kalchbrenner2014convolutional))
+    + &lt;a name=cite-kim2014convolutional&gt;&lt;/a&gt;([Kim, 2014](#bib-kim2014convolutional))
+* Interprets each token as real valued pixel
+* Local adaptive filters are pooling the spatial dependencies of words (1D)
+* Can be parallelized (speed up)
+
+---
+class: inverse
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;h1 class = "ui inverted header" style = "font-size:40px"&gt;
+  From Twitter to Ballot
+  &lt;div class = "sub header" style = "font-size:25px"&gt;
+    Predicting citizen’s voting behavior via Twitter
+  &lt;/div&gt;
+&lt;/h1&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;div class = "ui middle aligned centered  grid"&gt;
+&lt;div class = "three wide column"&gt;
+  &lt;h3 class = "ui inverted header"&gt;
+  Sascha Göbel
+  &lt;div class = "sub header"&gt;
+  GSDS
+  &lt;/div&gt;
+  &lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class = "three wide column"&gt;
+  &lt;h3 class = "ui inverted header"&gt;
+  Simon Roth
+  &lt;div class = "sub header"&gt;
+  GSDS
+  &lt;/div&gt;
+  &lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+---
+
+### Research Agenda
+
+&lt;!-- &gt; Does online communication reflect voting behavior? --&gt;
+
+&lt;strong&gt;1. Participation studies&lt;/strong&gt;
+
+mainly use social network data to predict political outcomes like
+
+* Interpersons (e.g. Huckfeldt and Sprague, 1995; Jost et al., 2018)
+* Hyperlinks (e.g., Baek, 2009)
+* Roll Call Voting 
+* Neighborhoods (e.g. McClurg, 2006; Sotirovic and McLeod, 2001)
+* Follower/Friends (e.g. Barberá)
+
+&lt;!-- * Determinants of participation (e.g. Broockman, 2014; Broockman and Ryan, 2017; Jacobs, Cook and Carpini, 2009). --&gt;
+&lt;!-- * Infer individual characteristics by social media activity and content --&gt;
+
+&lt;strong&gt;2. Technical studies&lt;/strong&gt;
+
+Most of participation studies focus rather ojn political actors than actual citizens
+
+* voters (Barberá, 2015)
+* elites (Lowe et al., 2015)
+* aggregate public opinion (Beauchamp, 2017)
+* election outcomes (Lopez et al., 2018)
+* elite values (Jones et al., 2018)
+* political sophistication (Benoit et al., 2019).
+
+&lt;!-- This reveals a research gap as concerns the relationship between citizens' actual (political) communication and political participation. --&gt;
+&lt;!-- * Why? Citizens communication is expansiv to label for supervised machine learning --&gt;
+
+&lt;!-- &lt;strong&gt;Guiding Question&lt;/strong&gt; --&gt;
+
+&lt;!-- &gt; Does twitter enable us to predict **citizens' individual** voting behavior? --&gt;
+
+&lt;!-- * Public voter registrations files and public social media commentary --&gt;
+&lt;!-- * Massive volumn of data (training on 1.5 Mio tweets) --&gt;
+&lt;!-- * State of the art sequence language models  --&gt;
+
+**Research Question**
+
+* Does twitter enable us to predict citizens' individual voting behavior?
+* If so how accurate?
+* How valid are these computational measurements?
+
+
+---
+
+
+### Database
+
+
+.pull-left[
+
+* Match Florida voter registration files with Twitter accounts
+* 90000 registered voters (16%) matched by email
+* Sample approximates population characteristics (ACS and PUMS)
+* Rare strategic crossover voting &lt;a name=cite-alvarez1997analysis&gt;&lt;/a&gt;([Alvarez and Nagler, 1997](#bib-alvarez1997analysis))
+* Florida has closed primaries and public records
+
+
+**Political Targets**
+
+* voting turnout
+* voting propensity
+* **party registration**
+
+
+&lt;!-- * Person specific voting tendency --&gt;
+&lt;!-- * IRT of past elections (2006-2018) --&gt;
+&lt;!-- * forthcoming: individual election turnout (binary) --&gt;
+&lt;!-- * Public primary party registration --&gt;
+
+]
+
+.pull-right[
+
+&lt;center&gt;
+&lt;img src = "images/florida_battle.png" width = "80%"&gt;
+&lt;/center&gt;
+
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src = "images/sample.png" width = "80%"&gt;
+&lt;/center&gt;
+
+]
+
+
+
+---
+
+
+### Model Performance
+
+* Target is a citizen's binary partisanship (D=0, R=1)
+* Out of sample splitting (balanced outcome)
+* 88.9% test accuracy 
+
+&lt;center&gt;
+&lt;img src = "images/perfom.png" width = "80%"&gt;
+&lt;/center&gt;
+
+
+---
+
+### Validation 1
+
+* 2020 US predsidential candidates 
+* Collected the last 3200 statuses Twitter statuses 
+
+![](images/candidates2020.png)
+
+---
+
+### Validation 2
+
+* The Member Ideology data (Lewis et al. 2018)
+* Biographical and ideological information about members of congress 
+    + DW-Nominate and Nokken Poole based on roll call data
+    + PHI bayesian estimate of social network data
+* Collected the last 3200 statuses Twitter statuses of 421 out of 538 representatives
+
+&lt;center&gt;
+&lt;img src = "images/score_comparision.png" width = "90%"&gt;
+&lt;/center&gt;
+
+
+
+---
+
+### Next Steps
+
+
+* Predicting silent majority: Using liked tweets and friend networks as features 
+* Estimates are valid for this specific geo sample
+    + active battle ground state Florida
+    + communication national/international
+* Out of state validation with data from e.g. from Rhode Island or Nebraska
+* Predicting the US general election 2020 
+    + large twitter non-probability samples (geo tagged)
+    + predict additional features like sex and age
+    + post stratification of county level aggregation
+
+
+---
+class: inverse
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;h1 class = "ui inverted header" style = "font-size:40px"&gt;
+  Echo Chambers vs Filter Bubbles
+  &lt;div class = "sub header" style = "font-size:25px"&gt;
+    Large Scale Social Media Experiemnts using Bots
+  &lt;/div&gt;
+&lt;/h1&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;div class = "ui middle aligned centered  grid"&gt;
+&lt;div class = "three wide column"&gt;
+  &lt;h3 class = "ui inverted header"&gt;
+  Simon Roth
+  &lt;div class = "sub header"&gt;
+  GSDS
+  &lt;/div&gt;
+  &lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class = "three wide column"&gt;
+  &lt;h3 class = "ui inverted header"&gt;
+  Fabio Votta
+  &lt;div class = "sub header"&gt;
+  Uni Stuttgart
+  &lt;/div&gt;
+  &lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class = "four wide column"&gt;
+  &lt;h3 class = "ui inverted header"&gt;
+  Ben Guinaudeau
+  &lt;div class = "sub header"&gt;
+  GSDS
+  &lt;/div&gt;
+  &lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+### Downside of Social Media 
+
+&lt;!-- ## Upsides --&gt;
+
+&lt;!-- * facilitator for democratization processes --&gt;
+&lt;!--     + the Arab Spring (González Bailón, et al., 2011; Howard, et al., 2011) --&gt;
+&lt;!--     + Occupy Wall Street (Conover, et al., 2013a; Conover, et al., 2013b) --&gt;
+&lt;!--     + other civil protests (Varol, et al., 2014; González Bailón, et al., 2013) (Bastos, et al., 2014) --&gt;
+
+&lt;!-- * boosting voting turnout (Bond, et al., 2012) --&gt;
+&lt;!-- * exposure to diverse political views (Bakshy, et al., 2015)  --&gt;
+&lt;!-- * contributing to epistemic goals of democracy like  --&gt;
+
+&lt;!-- * BotOrNot has been trained with thousands of instances of social bots, from simple to sophisticated, and an accuracy of above 95 percent (Davis, et al., 2016).  --&gt;
+
+**Users**
+
+* fraud
+* mobbing
+* hate
+
+
+**Hidden Actors**
+
+* Bots armies
+* Computational propaganda
+    + engaging at much higher pace 
+    + undisclosed identity  (Hwang, et al., 2012; Messias, et al., 2013; Ferrara, et al., 2016).
+* Asroturf or Twitter bombs.
+    
+
+**Platform**
+
+* provides surveillance techniques that can be highckacked. 
+* can influece individual behavior (Aral and Walker, 2010). 
+* Facbook and Googles real world experimentation
+* privacy breaches
+
+
+
+---
+
+
+### Research Agenda 
+
+
+&lt;!-- &gt; Two mechanisms of selective exposure: self-selection into echo chambers and algorithmic confinement into filter bubbles.  --&gt;
+
+&lt;strong&gt;1. Echo Chambers&lt;/strong&gt;
+
+* Emerge in face-to-face relationships [@tewksbury2003americans; @garrett2009echo; @beam2013]
+* Facebook: confirmation bias is driving force of echo chamber creation [cf. @geschke_abm].
+* Exposing partisans to opposing views on Twitter increased political polarization [@bail2018exposure]. 
+&lt;!-- , at least for conservatives exposed to liberal viewpoints --&gt;
+* Facbook 2: suggest that the effect of echo chambers might be overestimated altogether [@bakshy2015exposure].
+* Endorsements of a given news source trump the explicit partisanship affiliation of the source [@solomon2014]
+* Guess et al. 2018 describe the rather limited evidence of echo chambers online and even talk about an *echo chamber about echo chambers*
+&lt;!-- * "bots" posing as white male users are able to reduce racial slurs used by other white people on Twitter more successfully than bots posing as black males [@Munger2017]. --&gt;
+
+---
+
+### Research Agenda 
+
+&lt;strong&gt;2. Filter Bubbles&lt;/strong&gt;
+
+* Online phenomenon of algorithmic prioritization of (ideologically) appealing content
+* "radical" filter bubbles on YouTube, Gab and Reddit [@reed2019radical].
+*  study the political bias of Google news recommendations [@haim2018burst].
+
+
+&lt;br&gt;
+
+&lt;strong&gt;Hypothesis&lt;/strong&gt;
+
+&lt;!-- **Self-Selection Hypothesis** --&gt;
+
+&gt; H1: Explicitly opting into receiving ideologically congruent content will deprioritize ideologically incongruent content in the news feed 
+
+&lt;!-- (in terms of frequency and ranking) --&gt;
+
+&lt;!-- **Filter bubble Hypothesis** --&gt;
+
+&gt; H2: Engaging with ideologically congruent content will deprioritize ideologically incongruent content in the news feed
+
+&lt;!-- (in terms of frequency and ranking) --&gt;
+
+&lt;!-- **Self-selection vs. Filter bubble** --&gt;
+
+&gt; H3: Self-selection into echo chambers has a stronger effect on censoring incongruent content than engaging with congruent content.
+
+
+---
+
+### Data Collection
+
+
+.pull-left[
+
+* Algorthmic Audit study
+* Experimental bot framework for Twitter 
+* Automated account creation (Email/Twitter)
+* Technical requirements:
+    + "home" location (VPN)
+    + phone number (SMS Verification)
+    + Personal Chrome browser cache
+    + Docker container to run Bot sessions in parallel
+
+**Anticipated Issues**
+
+* Attritution: bot detection (fake real person vs. obvious bot)
+* Spillovers: static VPN ip addresses all over the US
+* Missings: due to bugging code
+* Power: Several hundret bots are needed
+&lt;!-- * Treatment Level is Bot, session data has to be aggreagted for causal indtificsation --&gt;
+
+]
+
+.pull-right[
+
+&lt;div class="ui mini card"&gt;
+  &lt;div class = "ui top attached label"&gt; 
+    &lt;a href = "https://thispersondoesnotexist.com/" target="_blank"&gt;Deep Fake&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="image"&gt;
+    &lt;img src="images/judy_christensen.jpeg"&gt;
+  &lt;/div&gt;
+  &lt;div class="content"&gt;
+    &lt;div class="header"&gt;Judy Christiensen&lt;/div&gt;
+    &lt;div class="meta"&gt;
+      &lt;a&gt;judy.christiensen@gmail.com&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="description"&gt;
+      Programming nerd. Coffee practitioner. Avocado maven. Pop culture geek.
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="extra content"&gt;
+    &lt;div&gt;
+      BDAY 1982-03-12
+    &lt;/div&gt;
+    &lt;div&gt;
+      IP 23.105.110.231
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+]
+
+---
+
+### Pool to Follow
+
+* Ideological Scores as **treatment** as well as **outcome**
+* 650 accounts predicted with `deepvoter`
+* Inlcuding news media, political actors and public intellectuals
+* Objective: balanced sample that capatures the entire political spectrum
+
+
+
+
+&lt;center&gt;
+&lt;img src = "images/gg_pool.png" width = "100%"&gt;
+&lt;/center&gt;
+
+
+---
+
+### Treatments
+
+* Baseline: only personal email, profile picture and mobile number. 
+* Factorial design with complete randomization
+* **Follow (T1)** - bots follow a either majority republican or democratic accounts
+* **Engagement (T2)**  - half of the bots start engaging (liking, retweeting, posting) with congruent partisan content otherwise control
+
+
+&lt;center&gt;
+&lt;img src = "images/factorial.png" width = "40%"&gt;
+&lt;/center&gt;
+
+
+---
+
+### Summary
+
+* A computational framework for testing content recommendation engines
+* Allows to distill echo chambers from filter bubbles
+* Several hundret bots threat the algorithm over a long period
+* High performance text classifiers for partisanship
+* Can we observe algorithmic filter bubbles after engagment?
+
+**Next Steps**
+
+* Pretest with 12 virgin bots.
+* Main Experiment November - January.
+
+---
+
+### Conclusion
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
