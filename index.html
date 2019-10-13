@@ -139,11 +139,9 @@ class: inverse
 
 ### Information Warfare
 
-* Christover steel, whistelblower
-
-
+* Whistelblower
 * predicting political behavior. 
-* commerical targeting tools get hijacked by political interests. 
+* commercial targeting tools get hijacked by political interests. 
 
 
 
@@ -167,9 +165,9 @@ host vs parasite relationship.
 
 
 * Modern tools to extract knowledge from unstructured data
-* Behavioral predictions: What has been done bevor?
+* Behavioral predictions: What has been done before?
 * From Twitter to Ballot: Predicting Political Behavior from text
-* Social Media Experiemnts: What has been done before?
+* Social Media Experiments: What has been done before?
 * Echo chambers vs filter bubbles: Large Scale Bot Experiment on Twitter
 
 ---
@@ -295,7 +293,7 @@ New tools.
 ---
 
 
-### Memory Inefficfiency
+### Memory Inefficiency
 
 
 
@@ -565,9 +563,9 @@ class: inverse
 
 &lt;strong&gt;1. Participation studies&lt;/strong&gt;
 
-mainly use social network data to predict political outcomes like
+mainly use social network data like
 
-* Interpersons (e.g. Huckfeldt and Sprague, 1995; Jost et al., 2018)
+* Interpersonal (e.g. Huckfeldt and Sprague, 1995; Jost et al., 2018)
 * Hyperlinks (e.g., Baek, 2009)
 * Roll Call Voting 
 * Neighborhoods (e.g. McClurg, 2006; Sotirovic and McLeod, 2001)
@@ -578,7 +576,7 @@ mainly use social network data to predict political outcomes like
 
 &lt;strong&gt;2. Technical studies&lt;/strong&gt;
 
-Most of participation studies focus rather ojn political actors than actual citizens
+Most of participation studies focus on political actors rather than citizens
 
 * voters (Barberá, 2015)
 * elites (Lowe et al., 2015)
@@ -597,6 +595,7 @@ Most of participation studies focus rather ojn political actors than actual citi
 &lt;!-- * Public voter registrations files and public social media commentary --&gt;
 &lt;!-- * Massive volumn of data (training on 1.5 Mio tweets) --&gt;
 &lt;!-- * State of the art sequence language models  --&gt;
+
 
 **Research Question**
 
@@ -668,7 +667,7 @@ Most of participation studies focus rather ojn political actors than actual citi
 
 ### Validation 1
 
-* 2020 US predsidential candidates 
+* 2020 US presidential candidates 
 * Collected the last 3200 statuses Twitter statuses 
 
 ![](images/candidates2020.png)
@@ -680,7 +679,7 @@ Most of participation studies focus rather ojn political actors than actual citi
 * The Member Ideology data (Lewis et al. 2018)
 * Biographical and ideological information about members of congress 
     + DW-Nominate and Nokken Poole based on roll call data
-    + PHI bayesian estimate of social network data
+    + PHI Bayesian estimate of social network data
 * Collected the last 3200 statuses Twitter statuses of 421 out of 538 representatives
 
 &lt;center&gt;
@@ -695,12 +694,12 @@ Most of participation studies focus rather ojn political actors than actual citi
 
 
 * Predicting silent majority: Using liked tweets and friend networks as features 
-* Estimates are valid for this specific geo sample
+* Estimates are valid for this specific Geo sample
     + active battle ground state Florida
     + communication national/international
 * Out of state validation with data from e.g. from Rhode Island or Nebraska
 * Predicting the US general election 2020 
-    + large twitter non-probability samples (geo tagged)
+    + large twitter non-probability samples (Geo tagged)
     + predict additional features like sex and age
     + post stratification of county level aggregation
 
@@ -719,7 +718,7 @@ class: inverse
 &lt;h1 class = "ui inverted header" style = "font-size:40px"&gt;
   Echo Chambers vs Filter Bubbles
   &lt;div class = "sub header" style = "font-size:25px"&gt;
-    Large Scale Social Media Experiemnts using Bots
+    Large Scale Social Media Experiments using Bots
   &lt;/div&gt;
 &lt;/h1&gt;
 
@@ -796,9 +795,9 @@ class: inverse
 
 **Platform**
 
-* provides surveillance techniques that can be highckacked. 
-* can influece individual behavior (Aral and Walker, 2010). 
-* Facbook and Googles real world experimentation
+* provides surveillance techniques that can be hijacked. 
+* can influence individual behavior (Aral and Walker, 2010). 
+* Facebook and Google real world experimentation
 * privacy breaches
 
 
@@ -817,7 +816,7 @@ class: inverse
 * Facebook: confirmation bias is driving force of echo chamber creation [cf. @geschke_abm].
 * Exposing partisans to opposing views on Twitter increased political polarization [@bail2018exposure]. 
 &lt;!-- , at least for conservatives exposed to liberal viewpoints --&gt;
-* Facbook 2: suggest that the effect of echo chambers might be overestimated altogether [@bakshy2015exposure].
+* Facebook 2: suggest that the effect of echo chambers might be overestimated altogether [@bakshy2015exposure].
 * Endorsements of a given news source trump the explicit partisanship affiliation of the source [@solomon2014]
 * Guess et al. 2018 describe the rather limited evidence of echo chambers online and even talk about an *echo chamber about echo chambers*
 &lt;!-- * "bots" posing as white male users are able to reduce racial slurs used by other white people on Twitter more successfully than bots posing as black males [@Munger2017]. --&gt;
@@ -861,7 +860,7 @@ class: inverse
 
 .pull-left[
 
-* Algorthmic Audit study
+* Algorithmic Audit study
 * Experimental bot framework for Twitter 
 * Automated account creation (Email/Twitter)
 * Technical requirements:
@@ -872,11 +871,11 @@ class: inverse
 
 **Anticipated Issues**
 
-* Attritution: bot detection (fake real person vs. obvious bot)
-* Spillovers: static VPN ip addresses all over the US
+* Attribution: bot detection (fake real person vs. obvious bot)
+* Spillovers: static IP addresses via VPN all over the US
 * Missings: due to bugging code
-* Power: Several hundret bots are needed
-&lt;!-- * Treatment Level is Bot, session data has to be aggreagted for causal indtificsation --&gt;
+* Power: Several hundred bots are needed
+&lt;!-- * Treatment Level is Bot, session data has to be aggregated for causal identification --&gt;
 
 ]
 
@@ -916,8 +915,8 @@ class: inverse
 
 * Ideological Scores as **treatment** as well as **outcome**
 * 650 accounts predicted with `deepvoter`
-* Inlcuding news media, political actors and public intellectuals
-* Objective: balanced sample that capatures the entire political spectrum
+* Including news media, political actors and public intellectuals
+* Objective: balanced sample that captures the entire political spectrum
 
 
 
@@ -937,9 +936,27 @@ class: inverse
 * **Engagement (T2)**  - half of the bots start engaging (liking, retweeting, posting) with congruent partisan content otherwise control
 
 
+.pull-left[
+
+**Treatment Design**
+
 &lt;center&gt;
-&lt;img src = "images/factorial.png" width = "40%"&gt;
+&lt;img src = "images/factorial.png" width = "80%"&gt;
 &lt;/center&gt;
+
+]
+
+.pull-right[
+
+**Simulated Expections**
+
+&lt;center&gt;
+&lt;img src = "images/sim.png" width = "110%"&gt;
+&lt;/center&gt;
+
+]
+
+
 
 
 ---
@@ -948,9 +965,9 @@ class: inverse
 
 * A computational framework for testing content recommendation engines
 * Allows to distill echo chambers from filter bubbles
-* Several hundret bots threat the algorithm over a long period
+* Several hundred bots threat the algorithm over a long period
 * High performance text classifiers for partisanship
-* Can we observe algorithmic filter bubbles after engagment?
+* Can we observe algorithmic filter bubbles after engagement?
 
 **Next Steps**
 
